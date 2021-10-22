@@ -5,9 +5,9 @@ export const initialState = 0;
 
 export function counterReducer(state = initialState, action: Action) {
   switch (action.type) {
-    case increment.type:
+    /*case increment.type:
       state++;
-      break;
+      break;*/
     case decrement.type:
       state--;
       break;
@@ -15,7 +15,7 @@ export function counterReducer(state = initialState, action: Action) {
       state = initialState;
       break;
   }
-  
+  //console.log('in red 1: ' + state);
   return state;
 }
 
@@ -24,12 +24,7 @@ export function counter2Reducer(state = initialState, action: Action) {
     case increment.type:
       state++;
       break;
-    case decrement.type:
-      state--;
-      break;
-    case reset.type:
-      state = initialState;
-      break;
   }
+  //console.log('in red 2 :' + state);
   return state;
 }

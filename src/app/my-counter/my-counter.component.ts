@@ -10,10 +10,12 @@ import { storeconfig } from '.././storeconfig';
 })
 export class MyCounterComponent {
   count$: Observable<number>
+  count2$: Observable<number>
   count:number
   constructor(private store:Store) {
     // TODO: Connect `this.count$` stream to the current store `count` state
     this.count$=this.store.select('count')
+    this.count2$=this.store.select('count2')
     
   }
 
