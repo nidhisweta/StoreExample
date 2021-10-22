@@ -17,7 +17,7 @@ export class MyCounterComponent {
 
   increment() {
     // TODO: Dispatch an increment action
-    this.store.dispatch(increment())
+    this.store.dispatch({type:'Increment'});
   }
 
   decrement() {
