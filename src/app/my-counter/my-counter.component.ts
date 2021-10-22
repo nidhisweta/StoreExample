@@ -9,28 +9,27 @@ import { storeconfig } from '.././storeconfig';
   templateUrl: './my-counter.component.html',
 })
 export class MyCounterComponent {
-  count$: Observable<number>
-  count2$: Observable<number>
-  count:number
-  constructor(private store:Store) {
+  count$: Observable<number>;
+  count2$: Observable<number>;
+  count: number;
+  constructor(private store: Store<{ count: number,count2:number }>) {
     // TODO: Connect `this.count$` stream to the current store `count` state
-    this.count$=this.store.select('count')
-    this.count2$=this.store.select('count2')
-    
+    this.count$ = this.store.select('count');
+    this.count2$ = this.store.select('count2');
   }
 
   increment() {
     // TODO: Dispatch an increment action
-    this.store.dispatch({type:'Increment'});
+    this.store.dispatch({ type: 'Increment' });
   }
 
   decrement() {
     // TODO: Dispatch a decrement action
-    this.store.dispatch(decrement())
+    this.store.dispatch(decrement());
   }
 
   reset() {
     // TODO: Dispatch a reset action
-    this.store.dispatch(reset())
+    this.store.dispatch(reset());
   }
 }
