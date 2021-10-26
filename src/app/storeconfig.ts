@@ -1,3 +1,3 @@
 import { counterReducer, counter2Reducer } from './counter.reducer';
 
-export const storeconfig = { count: counterReducer, count2: counter2Reducer };
+export const storeconfig = { count1: counterReducer, count2: counter2Reducer };

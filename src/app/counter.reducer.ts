@@ -2,12 +2,16 @@ import { increment, decrement, reset } from './counter.action';
 import { Action } from '@ngrx/store';
 
 export const initialState = 0;
+export const initialState2 = {
+  counter: 0,
+  name: 'name',
+};
 
 export function counterReducer(state = initialState, action: Action) {
   switch (action.type) {
-    /*case increment.type:
+    case increment.type:
       state++;
-      break;*/
+      break;
     case decrement.type:
       state--;
       break;
@@ -19,12 +23,15 @@ export function counterReducer(state = initialState, action: Action) {
   return state;
 }
 
-export function counter2Reducer(state = initialState, action: Action) {
+export function counter2Reducer(
+  state: { counter: number; name: string } = initialState2,
+  action: Action
+) {
   switch (action.type) {
     case increment.type:
-      state++;
+      state.counter++;
       break;
   }
-  //console.log('in red 2 :' + state);
+  //console.log('in red 2 :' + state.counter);
   return state;
 }

@@ -10,12 +10,21 @@ import { storeconfig } from '.././storeconfig';
 })
 export class MyCounterComponent {
   count$: Observable<number>;
-  count2$: Observable<number>;
+  count2$: Observable<{ counter: number; name: string }>;
   count: number;
-  constructor(private store: Store<{ count: number,count2:number }>) {
+  constructor(
+    private store: Store<{
+      count1: number;
+      count2: { counter: number; name: string };
+    }>
+  ) {
     // TODO: Connect `this.count$` stream to the current store `count` state
-    this.count$ = this.store.select('count');
+    this.count$ = this.store.select('count1');
     this.count2$ = this.store.select('count2');
+    this.count2$.subscribe((res) => {
+      this.count = res.counter;
+      console.log('inside subscribe ' + this.count);
+    });
   }
 
   increment() {
