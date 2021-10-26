@@ -29,7 +29,7 @@ export function counter2Reducer(
 ) {
   switch (action.type) {
     case increment.type:
-      state.counter++;
+      return {counter:state.counter+1,name:state.name}
       break;
   }
   //console.log('in red 2 :' + state.counter);
